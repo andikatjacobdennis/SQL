@@ -288,3 +288,66 @@ END
 -- Clean up
 CLOSE EmployeeCursor;
 DEALLOCATE EmployeeCursor;
+
+-- Pivot: Show HoursWorked per Employee, each Project as a column
+SELECT 
+    FullName,
+    ISNULL([Website Redesign], 0) AS WebsiteRedesignHours,
+    ISNULL([HR System Upgrade], 0) AS HRSystemUpgradeHours,
+    ISNULL([Financial Reporting], 0) AS FinancialReportingHours,
+    ISNULL([Marketing Campaign], 0) AS MarketingCampaignHours
+FROM
+(
+    SELECT 
+        e.FirstName + ' ' + e.LastName AS FullName,
+        p.ProjectName,
+        ep.HoursWorked
+    FROM EmployeeProjects ep
+    JOIN Employees e ON ep.EmployeeId = e.EmployeeId
+    JOIN Projects p ON ep.ProjectId = p.ProjectId
+) AS SourceTable
+PIVOT
+(
+    SUM(HoursWorked)
+    FOR ProjectName IN (
+        [Website Redesign],
+        [HR System Upgrade],
+        [Financial Reporting],
+        [Marketing Campaign]
+    )
+) AS PivotTable
+ORDER BY FullName;
+GO
+
+-- Recursive CTE: Display Employee hierarchy starting from top managers
+WITH EmployeeHierarchy AS
+(
+    -- Anchor member: top-level managers (no ManagerId)
+    SELECT 
+        EmployeeId,
+        FirstName + ' ' + LastName AS FullName,
+        ManagerId,
+        0 AS Level
+    FROM Employees
+    WHERE ManagerId IS NULL
+
+    UNION ALL
+
+    -- Recursive member: employees reporting to someone
+    SELECT 
+        e.EmployeeId,
+        e.FirstName + ' ' + e.LastName AS FullName,
+        e.ManagerId,
+        eh.Level + 1
+    FROM Employees e
+    INNER JOIN EmployeeHierarchy eh 
+        ON e.ManagerId = eh.EmployeeId
+)
+SELECT 
+    EmployeeId,
+    FullName,
+    ManagerId,
+    Level
+FROM EmployeeHierarchy
+ORDER BY Level, FullName;
+GO
