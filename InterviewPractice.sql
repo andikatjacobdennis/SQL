@@ -1,3 +1,14 @@
+-- Drop the database if it exists
+USE master;
+GO
+
+IF EXISTS (SELECT name FROM sys.databases WHERE name = 'InterviewPracticeDB')
+BEGIN
+    ALTER DATABASE InterviewPracticeDB SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE InterviewPracticeDB;
+END
+GO
+
 -- Create a sample database for interview practice 
 CREATE DATABASE InterviewPracticeDB; 
 GO 
