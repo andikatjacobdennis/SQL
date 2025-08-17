@@ -1,5 +1,15 @@
 # SQL Interview Questions
 
+These questions cover:
+
+**Basic queries** (SELECT, WHERE, GROUP BY)  
+**Joins & Subqueries**  
+**Aggregations & Window Functions**  
+**CTEs & Recursive Queries**  
+**Pivoting & Dynamic SQL**  
+**Performance Optimization**  
+**Real-world business logic**  
+
 ## **Basic SQL Questions**
 1. **Retrieve all employees from the IT department.**
 2. **Find employees hired after January 1, 2019.**
@@ -66,15 +76,3 @@
 43. **Find employees who have the same salary as their manager.**
 44. **Calculate the salary difference between each employee and their manager.**
 45. **Write a query to detect circular manager references (e.g., A manages B, B manages C, C manages A).**
-
----
-
-These questions cover:
-
-**Basic queries** (SELECT, WHERE, GROUP BY)  
-**Joins & Subqueries**  
-**Aggregations & Window Functions**  
-**CTEs & Recursive Queries**  
-**Pivoting & Dynamic SQL**  
-**Performance Optimization**  
-**Real-world business logic**  
