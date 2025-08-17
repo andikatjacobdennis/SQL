@@ -1,4 +1,6 @@
-# **Basic SQL Questions**
+# SQL Interview Questions
+
+## **Basic SQL Questions**
 1. **Retrieve all employees from the IT department.**
 2. **Find employees hired after January 1, 2019.**
 3. **List all projects that are currently ongoing (no EndDate).**
@@ -12,7 +14,7 @@
 
 ---
 
-# **Intermediate SQL Questions**
+## **Intermediate SQL Questions**
 11. **Find the average salary per department.**
 12. **List employees who work on more than one project.**
 13. **Find the total hours worked per project.**
@@ -26,7 +28,7 @@
 
 ---
 
-# **Advanced SQL Questions**
+## **Advanced SQL Questions**
 21. **Write a query to show the employee hierarchy (managers and their subordinates).**
 22. **Use a PIVOT to display hours worked per employee per project.**
 23. **Find employees who have never been assigned to a project.**
@@ -40,7 +42,7 @@
 
 ---
 
-# **Database Design & Optimization**
+## **Database Design & Optimization**
 31. **How would you optimize the query for finding employees by department?**
 32. **When would you use a stored procedure vs. a function?**
 33. **Explain how the `AuditLog` trigger works and when it fires.**
@@ -49,7 +51,7 @@
 
 ---
 
-# **Practical Scenarios**
+## **Practical Scenarios**
 36. **Write a query to give all employees in the IT department a 10% raise.**
 37. **Find employees who have been with the company for more than 5 years but haven’t been promoted (salary increase < 15%).**
 38. **Simulate a transaction to transfer an employee to a new department while ensuring data consistency.**
@@ -58,7 +60,7 @@
 
 ---
 
-# **Bonus: Tricky SQL Problems**
+## **Bonus: Tricky SQL Problems**
 41. **Find employees who are managers but don’t have anyone reporting to them (empty team).**
 42. **List departments where the highest-paid employee earns more than twice the department average.**
 43. **Find employees who have the same salary as their manager.**
